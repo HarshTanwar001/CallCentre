@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Home</title>
+        <!-- raising alerts if a msg has been passed from the view -->
+        {% if msg %}
+            <script>
+                alert('{{ msg }}')
+            </script>
+        {% endif %}
+    </head>
+    <body>
+        <form method="post" action="{% url 'call' %}">
+            {% csrf_token %}
+            <label>Enter your mobile number:</label>
+            <input type="text" name="from" maxlength="10" size="15"> <br><br>
+            <label>Enter that person's number whom you wish to call:</label>
+            <input type="text" name="to" maxlength="10" size="15"> <br><br><br>
+            <button type="submit">Initiate Call</button> &emsp;&emsp;
+            <button type="submit" formaction="{% url 'report' %}">Generate Call Report</button>
+        </form>
+    </body>
+</html>

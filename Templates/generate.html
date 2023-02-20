@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Call Report</title>
+        <style>
+            table {
+              font-family: arial, sans-serif;
+              border-collapse: collapse;
+              width: 90%;
+            }
+            
+            td, th {
+              border: 1px solid #dddddd;
+              text-align: left;
+              padding: 8px;
+            }
+            
+            tr:nth-child(even) {
+              background-color: #dddddd;
+            }
+        </style>
+    </head>
+    <body>
+        {% if data %}
+            <br><br>
+            <table>
+                <tr>
+                    <th>From</th>
+                    <th>To</th>
+                    <th>Call Start Time</th>
+                </tr>
+                {% for d in data %}
+                    <tr>
+                        <td>{{ d.from_no }}</td>
+                        <td>{{ d.to_no }}</td>
+                        <td>{{ d.start_time }}</td>
+                    </tr>
+                {% endfor %}
+            </table>
+        {% endif %}
+    </body>
+</html>
